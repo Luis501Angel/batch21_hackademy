@@ -1,0 +1,86 @@
+#card-image:before {
+	content:'';
+	position: absolute;
+        top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.6);
+}
+
+
+#imageDefinicion{
+	background-color: rgba(0,0,0,0.8);
+	background-image:url("../img/definicionIA1.jpg");
+	height: 230px;
+	max-width: 100%;
+	filter:brightness(0.4);
+  }
+
+#imageCasaInteligente {
+	background-color: rgba(0,0,0,0.8);
+	background-image:url("../img/aplicacioncasa.jpg");
+	height: 500px;
+	max-width: 100%;
+	filter:brightness(0.4);
+  }
+
+  
+#imageSpam {
+	background-color: rgba(0,0,0,0.8);
+	background-image:url("../img/correoelectronico.jpg");
+	height: 500px;
+	max-width: 100%;
+	filter:brightness(0.4);
+  }
+
+  
+#imageAnuncio {
+	background-color: rgba(0,0,0,0.8);
+	background-image:url("../img/anunciosPersonalizados.jpg");
+	height: 500px;
+	max-width: 100%;
+	filter:brightness(0.4);
+  }
+
+  #imageChatbot {
+	background-color: rgba(0,0,0,0.8);
+	background-image:url("../img/chatbot.png");
+	height: 500px;
+	max-width: 100%;
+	filter:brightness(0.4);
+  }
+
+  #imageVideojuegos {
+	background-color: rgba(0,0,0,0.8);
+	background-image:url("../img/videojuegos.jpg");
+	height: 500px;
+	max-width: 100%;
+	filter:brightness(0.4);
+  }
+
+  #imageVehiculos {
+	background-color: rgba(0,0,0,0.8);
+	background-image:url("../img/vehiculosA.jpg");
+	height: 500px;
+	max-width: 100%;
+	filter:brightness(0.4);
+  }
+
+  #imageAsistente {
+	background-color: rgba(0,0,0,0.8);
+	background-image:url("../img/asistente.jpg");
+	height: 500px;
+	max-width: 100%;
+	filter:brightness(0.4);
+  }
+
+  div.avatar {
+    /* cambia estos dos valores para definir el tamaño de tu círculo */
+    height: 100px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+}

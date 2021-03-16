@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, Response
+from flask_cors import CORS, cross_origin
 from flask_pymongo import PyMongo
 from bson import json_util
 from bson.objectid import ObjectId
@@ -8,11 +9,11 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from functools import wraps
 import datetime
-from model.user import User
 
 app = Flask(__name__)
 app.config['MONGO_URI']='mongodb://localhost/restaurant'
 app.config['SECRET_KEY']='legluang34'
+CORS(app)
 mongo = PyMongo(app)
 
 def token_required(f):
@@ -42,7 +43,7 @@ def create_food():
         mongo.db.foods.insert(
             {
                 'name': name,
-                'decription': description,
+                'description': description,
                 'image_url': image_url
             }
         )
@@ -108,7 +109,7 @@ def signup_admin():
 
     if username and password:
         hashed_password = generate_password_hash(password)
-        id = mongo.db.users.insert({'public_id': str(uuid.uuid4()),'username': username, 'password': hashed_password})
+        mongo.db.users.insert({'public_id': str(uuid.uuid4()),'username': username, 'password': hashed_password})
         response = {
             'message': 'Registrado'
         }
