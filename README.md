@@ -8,9 +8,9 @@ Repositorio dedicado para almacenar el reto técnico para el bootcamp de hackade
 * [PyMongo](https://pymongo.readthedocs.io/en/stable/) - Herramienta usada para trabajar con MongoDB
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Herramienta usada para crear el servidor
 
-# Frontend 🖱️
+## Frontend 🖱️
 
-* [HTML]
-* [CSS]
-* [JavaScript]
-* [Bootstrap]
+* HTML
+* CSS
+* JavaScript
+* Bootstrap
