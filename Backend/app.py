@@ -38,13 +38,15 @@ def create_food():
     name = request.json['name']
     description = request.json['description']
     image_url = request.json['image_url']
+    type_food = request.json['type_food']
 
     if name and description and image_url:
         mongo.db.foods.insert(
             {
                 'name': name,
                 'description': description,
-                'image_url': image_url
+                'image_url': image_url,
+                'type_food': type_food
             }
         )
         response = {
@@ -70,6 +72,13 @@ def get_food(id):
     response = json_util.dumps(food)
     return Response(response, mimetype='aplication/json')
 
+@app.route('/food/type/<tipo>', methods = ['GET'])
+def get_food_by_type(tipo):
+    food = mongo.db.foods.find({'type_food': tipo})
+    response = json_util.dumps(food)
+    return Response(response, mimetype='aplication/json')
+
+
 @app.route('/food/<id>', methods = ['DELETE'])
 def delete_food(id):
     mongo.db.foods.delete_one({'_id': ObjectId(id)})
@@ -80,14 +89,16 @@ def delete_food(id):
 def update_food(id):
     name = request.json['name'],
     description = request.json['description'],
-    image_url = request.json['image_url']
+    image_url = request.json['image_url'],
+    type_food = request.json['type_food']
 
     if name and description and image_url:
         mongo.db.foods.update_one({'__id': ObjectId(id)}, {
             '$set': {
                 'name': name,
                 'description': description,
-                'image_url': image_url
+                'image_url': image_url,
+                'type_food': type_food
             }
         })
         response = jsonify({'message': 'Comida: ' + id + ' fue actualizada correctamente'})

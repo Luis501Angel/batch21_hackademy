@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/ico" href="./assets/favicon.ico" />
-  <title>Saborissimo</title>
+  <title>Inicio</title>
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
@@ -27,7 +27,7 @@
 
   <!-- Barra de navegacion -->
   <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-    <div class="container"><a class="navbar-brand" href="index.html">Saborissimo</a><button data-toggle="collapse"
+    <div class="container"><a class="navbar-brand" href="index.html">Mi restaurante</a><button data-toggle="collapse"
         data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -43,40 +43,22 @@
       <div class="row">
         <div class="col-md-8 col-lg-6 col-xl-8 offset-xl-1 mx-auto">
           <div class="site-heading">
-            <h1>Mi restaurante</h1><span class="subheading"><br><em>“Uno de los restaurantes más famosos de
-                Mexico"</em><br><br></span>
+            <h1>Mi restaurante</h1><span class="subheading"><br><em>“Nuestro amor por la comida nos hizo crear la
+                mejor"</em><br><br></span>
           </div>
         </div>
       </div>
     </div>
   </header>
 
+  <button type="submit" class="btn btn-primary" onclick="obtenerSopas()">Sopas</button>
+  <button type="submit" class="btn btn-primary" onclick="obtenerBebidas()">Bebidas</button>
+  <button type="submit" class="btn btn-primary" onclick="obtenerGuisados()">Guisados</button>
+
   <div class="container">
-    <div class="row space-rows">
-      <div class="col" id="contenedor">
-
-      </div>
+    <div class="row space-rows" id="contenedor">
     </div>
   </div>
-
-
- <div class="row space-rows">
-    <div class="card" style="width: 15rem;">
-    <img src="${result.image_url}" class="card-img-top" width="110rem" height="160rem">
-    <div class="card-body">
-      <h5 class="card-title text-center">${result.name}</h5>
-    </div>
-  </div>
-
-  <div class="card" style="width: 15rem;">
-    <img src="${result.image_url}" class="card-img-top" width="110rem" height="160rem">
-    <div class="card-body">
-      <h5 class="card-title text-center">${result.name}</h5>
-    </div>
-  </div>
- </div>
-
-
 
 
 </body>
