@@ -1,29 +1,7 @@
-function crear() {
-  var formulario = document.getElementById('formulario');
-  var tipo_comida = document.getElementById("tipocomida").value;
-  
-  var datos = new FormData(formulario);
-  formulario.addEventListener('submit', function (e) {
-    e.preventDefault();
-    fetch('http://127.0.0.1:5000/food', {
-      method: 'POST', headers: {
-        "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-      },
-      body: JSON.stringify({
-        name: datos.get('nameFood'),
-        description: datos.get('descriptionFood'),
-        image_url: urlImageFirebase,
-        type_food: tipo_comida
-      }),
-    })
-      .then(response => response.json())
-      .then(json => console.log(json), )
-  })
-}
+const apiURL = 'http://127.0.0.1:5000';
 
-window.onload = function obtener() {
-  fetch('http://127.0.0.1:5000/food', {
+function obtener() {
+  fetch(apiURL + '/food', {
     method: 'GET', headers: {
       "Content-type": "application/json",
       "Access-Control-Allow-Origin": "*"
@@ -39,11 +17,11 @@ function tabla(json) {
   var contenido = "";
   json.forEach(function (result, i) {
     contenido += `
-    <div class="col">
+    <div class="col-auto text-center p-2">
     <div class="card" style="width: 15rem;" >
       <img src="${result.image_url}" class="card-img-top" width="110rem" height="160rem">
       <div class="card-body">
-        <h5 class="card-title text-center">${result.name}</h5>
+        <h7 class="card-subtitle text-center" style="font-weight: bold;">${result.name}</h7>
       </div>
     </div>
     </div>
@@ -52,9 +30,36 @@ function tabla(json) {
   contenedor.innerHTML += contenido;
 }
 
+window.onload = obtenerEntradas();
+
+function obtenerEntradas() {
+  contenedor.innerHTML = ``;
+  fetch(apiURL + '/food/type/entrada', {
+    method: 'GET', headers: {
+      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET"
+    }
+  })
+    .then(response => response.json())
+    .then(json => tabla(json),)
+}
+
 function obtenerSopas() {
   contenedor.innerHTML = ``;
-  fetch('http://127.0.0.1:5000/food/type/sopa', {
+  fetch(apiURL + '/food/type/sopa', {
+    method: 'GET', headers: {
+      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    }
+  })
+    .then(response => response.json())
+    .then(json => tabla(json),)
+}
+
+function obtenerPlatillos() {
+  contenedor.innerHTML = ``;
+  fetch(apiURL + '/food/type/platillo', {
     method: 'GET', headers: {
       "Content-type": "application/json",
       "Access-Control-Allow-Origin": "*"
@@ -66,7 +71,7 @@ function obtenerSopas() {
 
 function obtenerBebidas() {
   contenedor.innerHTML = ``;
-  fetch('http://127.0.0.1:5000/food/type/bebida', {
+  fetch(apiURL + '/food/type/bebida', {
     method: 'GET', headers: {
       "Content-type": "application/json",
       "Access-Control-Allow-Origin": "*"
@@ -76,9 +81,10 @@ function obtenerBebidas() {
     .then(json => tabla(json),)
 }
 
-function obtenerGuisados() {
+
+function obtenerPostres() {
   contenedor.innerHTML = ``;
-  fetch('http://127.0.0.1:5000/food/type/guisado', {
+  fetch(apiURL + '/food/type/postre', {
     method: 'GET', headers: {
       "Content-type": "application/json",
       "Access-Control-Allow-Origin": "*"
@@ -87,3 +93,6 @@ function obtenerGuisados() {
     .then(response => response.json())
     .then(json => tabla(json),)
 }
+
+
+

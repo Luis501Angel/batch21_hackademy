@@ -13,8 +13,10 @@ import datetime
 app = Flask(__name__)
 app.config['MONGO_URI']='mongodb://localhost/restaurant'
 app.config['SECRET_KEY']='legluang34'
-CORS(app)
+cors = CORS(app)
 mongo = PyMongo(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 def token_required(f):
     @wraps(f)
@@ -33,6 +35,7 @@ def token_required(f):
         return f(current_user, *args, **kwargs)
     return decorator
 
+@cross_origin()
 @app.route('/food', methods = ['POST'])
 def create_food():
     name = request.json['name']
@@ -72,6 +75,7 @@ def get_food(id):
     response = json_util.dumps(food)
     return Response(response, mimetype='aplication/json')
 
+@cross_origin()
 @app.route('/food/type/<tipo>', methods = ['GET'])
 def get_food_by_type(tipo):
     food = mongo.db.foods.find({'type_food': tipo})
