@@ -44,8 +44,6 @@ function subirArchivo(archivo) {
   }
   function finSubida() {
     uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-      console.log('File available at', downloadURL);
-      console.log('Subida completa');
       urlImageFirebase = downloadURL;
     });
   }

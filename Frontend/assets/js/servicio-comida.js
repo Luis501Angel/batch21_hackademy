@@ -1,4 +1,4 @@
-const apiURL = 'http://127.0.0.1:5000';
+const apiURL = 'https://restaurant-apirest.herokuapp.com';
 
 function obtener() {
   fetch(apiURL + '/food', {

@@ -3,20 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/ico" href="./assets/favicon.ico" />
   <title>Dashboard</title>
-
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
   <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-  <link rel="stylesheet" href="assets/css/Animation-Cards-1.css">
-  <link rel="stylesheet" href="assets/css/Animation-Cards.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -56,10 +50,10 @@
   <div class="container" style="display: flex;">
 
     <form id="formulario">
-      <div class="p-4">
-        <div class="card" style="width: 26rem;">
+      <div class="p-2">
+        <div class="card " style="width: 26rem;">
           <div class="card-body">
-            <div class="p-4">
+            <div class="p-2">
               <div class="mb-3">
                 <label for="inputNameFood" class="form-label">Nombre de la comida: </label>
                 <input type="text" class="form-control" id="nameFood1" name="nameFood">
@@ -84,6 +78,10 @@
                   <option value="postre">Postre</option>
                 </select>
               </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Precio $</span>
+                <input type="number" class="form-control" aria-label="Pesos MXN" id="preciocomida">
+              </div>
               <button type="submit" class="btn btn-primary" onclick="crear()">Aceptar</button>
             </div>
           </div>
@@ -91,48 +89,21 @@
       </div>
     </form>
 
-
-    <div class="" style="float: right;">
-      <h2 class="p-2">Menú</h2>
-      <div class="container" style="background-color: #fdf8f7;border-radius: 150px;">
-        <div class="m-0 row justify-content-center">
-          <div class="col-auto text-center">
-            <button type="submit" class="btn" onclick="obtenerEntradas()" style="color: #5e120a; font-weight: bold;"><img
-                src="./assets/img/iconoEntradas.png" style="width: 40px;"><br>Entradas</button>
-            <button type="submit" class="btn" onclick="obtenerSopas()" style="color: #5e120a; font-weight: bold;"><img
-                src="./assets/img/iconoSopas.png" style="width: 40px;"><br> Sopas</button>
-            <button type="submit" class="btn" onclick="obtenerPlatillos()" style="color: #5e120a; font-weight: bold;"><img
-                src="./assets/img/iconoPlatillo.png" style="width: 40px;"><br> Platillos</button>
-            <button type="submit" class="btn" onclick="obtenerBebidas()" style="color: #5e120a; font-weight: bold;"><img
-                src="./assets/img/iconoBebidas.png" style="width: 40px;"><br> Bebidas</button>
-            <button type="submit" class="btn" onclick="obtenerPostres()" style="color: #5e120a; font-weight: bold;"><img
-                src="./assets/img/iconoPostres.png" style="width: 40px;"><br> Postres</button>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row space-rows justify-content-center" id="contenedor">
-        </div>
-      </div>
-    </div>
   </div>
 
 </body>
-<!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-storage.js"></script>
+
 <!-- Mis servicios -->
+<script src="assets/js/servicio-imagen-firebase.js"></script>
+<script src="assets/js/servicio-administrador.js"></script>
+<footer>
 
-<script src="JS/servicio-imagen-firebase.js"></script>
-<script src="JS/servicio-administrador.js"></script>
+  <p>Copyright &copy; 1990-2014 Peter Doe, todos los derechos reservados.</p>
 
+</footer>
 </html>
