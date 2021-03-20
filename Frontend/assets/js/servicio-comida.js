@@ -52,7 +52,7 @@ function obtenerSopas() {
   fetch(apiURL + '/food/type/sopa', {
     method: 'GET', headers: {
       "Content-type": "application/json",
-      "Access-Control-Allow-Origin": "*"
+      "Access-Control-Allow-Origin": "*",
     }
   })
     .then(response => response.json())
