@@ -8,13 +8,13 @@ Repositorio dedicado para almacenar el reto técnico para el bootcamp de hackade
 * [PyMongo](https://pymongo.readthedocs.io/en/stable/) - Herramienta usada para trabajar con MongoDB
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Herramienta usada para crear el servidor
 
-# Deploy 🚀
+### Deploy 🚀
 
 Realizado en *Heroku*
 
 Enlace a la API REST -> [https://restaurant-apirest.herokuapp.com](https://restaurant-apirest.herokuapp.com)
 
-# Endpoints 🖊️
+### Endpoints 🖊️
 
 ```
 Credenciales: 
@@ -52,7 +52,7 @@ Nota: Se requiere un token de accesso valido
 * JavaScript
 * Bootstrap
 
-# Deploy 🚀
+### Deploy 🚀
 
 Realizado en *Firebase*
 
