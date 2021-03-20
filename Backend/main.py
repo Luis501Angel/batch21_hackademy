@@ -5,6 +5,7 @@ from bson import json_util
 from bson.objectid import ObjectId
 import uuid
 from werkzeug.security import generate_password_hash, check_password_hash
+from decouple import config as config_decouple
 
 app = Flask(__name__)
 app.config['MONGO_URI']='mongodb+srv://apiuser:ocmdTBiwX1AltLnF@restaurant-hackademy.02ags.mongodb.net/restaurant'
