@@ -14,7 +14,8 @@ function crear() {
     fetch(apiURL + '/food', {
       method: 'POST', headers: {
         "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+        "x-access-tokens": localStorage.getItem('key')
       },
       body: JSON.stringify({
         name: datos.get('nameFood'),
