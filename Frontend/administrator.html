@@ -23,11 +23,6 @@
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
 </head>
-<!-- Barra de navegacion -->
-
-
-
-
 <body>
   <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
     <div class="container"><a class="navbar-brand" href="index.html">Mi restaurante</a><button data-toggle="collapse"
@@ -45,7 +40,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-lg-6 col-xl-8 offset-xl-1 mx-auto">
-          <div class="post-heading"></div>
         </div>
       </div>
     </div>
@@ -54,64 +48,91 @@
     <div class="col-md-8">
       <div class="card-title">
         <h3>¡Bienvenido! </h3>
-        <div id="saludo"></div>
+        <div id="saludo"></div> 
       </div>
-      <form id="formulario">
-        <div class="p-4">
-          <div class="card" style="width: 26rem;">
-            <div class="card-body">
-              <div class="p-4">
-                <div class="mb-3">
-                  <label for="inputNameFood" class="form-label">Nombre de la comida: </label>
-                  <input type="text" class="form-control" id="nameFood1" name="nameFood">
-                </div>
-                <div class="mb-3">
-                  <label for="formControlDescription" class="form-label">Descripción: </label>
-                  <textarea class="form-control" id="formControlDescription" rows="3" name="descriptionFood"></textarea>
-                </div>
-                <div class="mb-3">
-                  <div class="form-group">
-                    <input type="file" id="food-image" accept="image/*" />
-                    <div id="mensaje"></div>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <select id="tipocomida" class="form-select" aria-label="seleccion">
-                    <option selected>Selecciona el tipo de comida</option>
-                    <option value="entrada">Entrada</option>
-                    <option value="sopa">Sopa</option>
-                    <option value="platillo">Platillo</option>
-                    <option value="bebida">Bebida</option>
-                    <option value="postre">Postre</option>
-                  </select>
-                </div>
-                <button type="submit" class="btn btn-primary" onclick="crear()">Aceptar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
     </div>
   </div>
 
-  <div class="col-md-4">
-    <h1>Prueba</h1>
-    <button type="submit" class="btn btn-primary" onclick="limpiarCampos()">prueba</button>
+  <div class="container" style="display: flex;">
+
+    <form id="formulario">
+      <div class="p-4">
+        <div class="card" style="width: 26rem;">
+          <div class="card-body">
+            <div class="p-4">
+              <div class="mb-3">
+                <label for="inputNameFood" class="form-label">Nombre de la comida: </label>
+                <input type="text" class="form-control" id="nameFood1" name="nameFood">
+              </div>
+              <div class="mb-3">
+                <label for="formControlDescription" class="form-label">Descripción: </label>
+                <textarea class="form-control" id="formControlDescription" rows="3" name="descriptionFood"></textarea>
+              </div>
+              <div class="mb-3">
+                <div class="form-group">
+                  <input type="file" id="food-image" accept="image/*" />
+                  <div id="mensaje"></div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <select id="tipocomida" class="form-select" aria-label="seleccion">
+                  <option selected>Selecciona el tipo de comida</option>
+                  <option value="entrada">Entrada</option>
+                  <option value="sopa">Sopa</option>
+                  <option value="platillo">Platillo</option>
+                  <option value="bebida">Bebida</option>
+                  <option value="postre">Postre</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary" onclick="crear()">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+    <div class="" style="float: right;">
+      <h2 class="p-2">Menú</h2>
+      <div class="container" style="background-color: #fdf8f7;border-radius: 150px;">
+        <div class="m-0 row justify-content-center">
+          <div class="col-auto text-center">
+            <button type="submit" class="btn" onclick="obtenerEntradas()" style="color: #5e120a; font-weight: bold;"><img
+                src="./assets/img/iconoEntradas.png" style="width: 40px;"><br>Entradas</button>
+            <button type="submit" class="btn" onclick="obtenerSopas()" style="color: #5e120a; font-weight: bold;"><img
+                src="./assets/img/iconoSopas.png" style="width: 40px;"><br> Sopas</button>
+            <button type="submit" class="btn" onclick="obtenerPlatillos()" style="color: #5e120a; font-weight: bold;"><img
+                src="./assets/img/iconoPlatillo.png" style="width: 40px;"><br> Platillos</button>
+            <button type="submit" class="btn" onclick="obtenerBebidas()" style="color: #5e120a; font-weight: bold;"><img
+                src="./assets/img/iconoBebidas.png" style="width: 40px;"><br> Bebidas</button>
+            <button type="submit" class="btn" onclick="obtenerPostres()" style="color: #5e120a; font-weight: bold;"><img
+                src="./assets/img/iconoPostres.png" style="width: 40px;"><br> Postres</button>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row space-rows justify-content-center" id="contenedor">
+        </div>
+      </div>
+    </div>
   </div>
+
 </body>
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-storage.js"></script>
 <!-- Mis servicios -->
+
 <script src="JS/servicio-imagen-firebase.js"></script>
 <script src="JS/servicio-administrador.js"></script>
-
 
 </html>

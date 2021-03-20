@@ -17,11 +17,13 @@ function tabla(json) {
   var contenido = "";
   json.forEach(function (result, i) {
     contenido += `
-    <div class="col-auto text-center p-2">
+    <div class="col-auto p-2">
     <div class="card" style="width: 15rem;" >
       <img src="${result.image_url}" class="card-img-top" width="110rem" height="160rem">
       <div class="card-body">
         <h7 class="card-subtitle text-center" style="font-weight: bold;">${result.name}</h7>
+        <p style="float: right; color: #cc0000;">$ ${result.price}</p>
+        
       </div>
     </div>
     </div>

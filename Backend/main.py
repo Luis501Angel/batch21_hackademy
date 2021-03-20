@@ -3,37 +3,16 @@ from flask_cors import CORS, cross_origin
 from flask_pymongo import PyMongo
 from bson import json_util
 from bson.objectid import ObjectId
-import json
 import uuid
 from werkzeug.security import generate_password_hash, check_password_hash
-import jwt
-from functools import wraps
-import datetime
 
 app = Flask(__name__)
-app.config['MONGO_URI']='mongodb://localhost/restaurant'
+app.config['MONGO_URI']='mongodb+srv://apiuser:ocmdTBiwX1AltLnF@restaurant-hackademy.02ags.mongodb.net/restaurant'
 app.config['SECRET_KEY']='legluang34'
 cors = CORS(app)
 mongo = PyMongo(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-
-def token_required(f):
-    @wraps(f)
-    def decorator(*args, **kwargs):
-        token = None
-
-        if 'x-access-tokens' in request.headers:
-            token = request.headers['x-access-tokens']
-        if not token:
-            return jsonify({'message': 'Falta token de acceso'})
-        try:
-            data = jwt.decode(token, app.config['SECRET_KEY'])
-            current_user = mongo.db.users.find_one({'public_id' : data['public_id']})
-        except:
-            return jsonify({'message': 'Token invalido'})
-        return f(current_user, *args, **kwargs)
-    return decorator
 
 @cross_origin()
 @app.route('/food', methods = ['POST'])
@@ -42,14 +21,16 @@ def create_food():
     description = request.json['description']
     image_url = request.json['image_url']
     type_food = request.json['type_food']
+    price = request.json['price']
 
-    if name and description and image_url:
-        mongo.db.foods.insert(
+    if name and description and image_url and type_food and price:
+        mongo.db.foods.insert_one(
             {
                 'name': name,
                 'description': description,
                 'image_url': image_url,
-                'type_food': type_food
+                'type_food': type_food,
+                'price': price
             }
         )
         response = {
@@ -63,7 +44,6 @@ def create_food():
         return response
 
 @app.route('/food', methods = ['GET'])
-#@token_required
 def get_foods():
     foods = mongo.db.foods.find()
     response = json_util.dumps(foods)
@@ -82,7 +62,6 @@ def get_food_by_type(tipo):
     response = json_util.dumps(food)
     return Response(response, mimetype='aplication/json')
 
-
 @app.route('/food/<id>', methods = ['DELETE'])
 def delete_food(id):
     mongo.db.foods.delete_one({'_id': ObjectId(id)})
@@ -94,7 +73,8 @@ def update_food(id):
     name = request.json['name'],
     description = request.json['description'],
     image_url = request.json['image_url'],
-    type_food = request.json['type_food']
+    type_food = request.json['type_food'],
+    price = request.json['price']
 
     if name and description and image_url:
         mongo.db.foods.update_one({'__id': ObjectId(id)}, {
@@ -102,7 +82,8 @@ def update_food(id):
                 'name': name,
                 'description': description,
                 'image_url': image_url,
-                'type_food': type_food
+                'type_food': type_food,
+                'price': price
             }
         })
         response = jsonify({'message': 'Comida: ' + id + ' fue actualizada correctamente'})
@@ -134,27 +115,6 @@ def signup_admin():
             'message': 'No registrado'
         }
         return response
-
-@app.route('/login', methods = ['POST', 'GET'])
-def login():
-    auth = request.authorization
-    if not auth or not auth.username or not auth.password:
-        response = jsonify({
-             'message': 'No se pudo autenticar'
-        })
-        return response
-
-    admin = mongo.db.users.find_one({'username': auth.username})
-    user = json.loads(json_util.dumps(admin))
-    password = user['password']
-
-    if check_password_hash(password, auth.password):
-        token = jwt.encode({'public_id': user['public_id'], 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes = 30)}, app.config['SECRET_KEY'])
-        return jsonify({'token': token})
-    response = jsonify({
-             'message': 'No se pudo autenticar'
-       })
-    return response
 
 if __name__ == "__main__":
     app.run(debug = True)
