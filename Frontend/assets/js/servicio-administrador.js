@@ -27,6 +27,7 @@ function crear() {
     })
       .then(response => response.json())
       .then(json => console.log(json),)
+      .then(limpiarCampos())
   })
 }
 
@@ -47,10 +48,6 @@ function mostrarSaludo() {
     <h3> Buenas noches <img src="./assets/img/buenasNoches.png"  style="width: 40px;"></h3>
     `
     }
-  }
-  
-  function eliminar(result) {
-    console.log(result.name);
   }
 
   function tabla(json) {
@@ -132,6 +129,10 @@ function mostrarSaludo() {
     })
       .then(response => response.json())
       .then(json => tabla(json),)
+  }
+
+  function limpiarCampos() {
+    document.getElementById("formulario").reset();
   }
 
   
