@@ -19,3 +19,8 @@ function checkKey() {
         location.href ="https://restaurant-batch-larr.web.app/administrator.html";
     }
 }
+
+function cerrarSesion() {
+    localStorage.removeItem('key');
+    location.href ="https://restaurant-batch-larr.web.app/index.html";
+}

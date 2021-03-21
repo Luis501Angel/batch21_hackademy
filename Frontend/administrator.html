@@ -17,13 +17,21 @@
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
 </head>
+
 <body>
+  <!-- Barra de navegacion -->
   <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-    <div class="container"><a class="navbar-brand" href="index.html">Mi restaurante</a><button data-toggle="collapse"
-        data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Mi restaurante</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <button type="submit" class="btn btn-danger" onclick="cerrarSesion()">Cerrrar sesión</button>
+          </li>
         </ul>
       </div>
     </div>
@@ -42,7 +50,7 @@
     <div class="col-md-8">
       <div class="card-title">
         <h3>¡Bienvenido! </h3>
-        <div id="saludo"></div> 
+        <div id="saludo"></div>
       </div>
     </div>
   </div>
@@ -101,9 +109,21 @@
 <!-- Mis servicios -->
 <script src="assets/js/servicio-imagen-firebase.js"></script>
 <script src="assets/js/servicio-administrador.js"></script>
-<footer>
+<script src="assets/js/servicio-login.js"></script>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto">
+      <ul class="list-inline text-center">
 
-  <p>Copyright &copy; 1990-2014 Peter Doe, todos los derechos reservados.</p>
-
+        <a href="https://github.com/Luis501Angel" target="_blank" class="link-dark">
+          <li class="list-inline-item"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i
+                class="fa fa-github fa-stack-1x fa-inverse"></i></span></li>
+        </a>
+      </ul>
+      <p class="text-muted copyright">Copyright&nbsp;© Luis501Angel 2021</p>
+    </div>
+  </div>
+</div>
 </footer>
+
 </html>
